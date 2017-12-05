@@ -42,10 +42,9 @@ public class MenuScript : MonoBehaviour {
             {
                 NetworkHUD.enabled = true;
             }
-            /*
+            
             AudioListener.pause = true;
             Time.timeScale = 0;
-            */
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Player.GetComponent<PlayerController>().enabled = false;
