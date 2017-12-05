@@ -1,0 +1,36 @@
+Big Bad Baller Ball RPG
+Dace was here
+Perspective: 3rd person mouse controlled camera, RPG
+Theme: Minimalistic geometric. Forrest/ rural. Medeival.
+Goal: Defeat each zones boss, then the final boss
+Challenge: Evading enemies while using abilities to accomplish goals. Possibly race missions as well.
+Control: The player controls the protagonist and his abilities. Decision points would be what to upgrade, which missions to take, how to best handle a quest.
+Drawing: BY HAND
+Notes: 3D RPG where max zoom, max speed, jump height and other variables are infinitely upgradeable. It would also include weapons, quests, NPCs, and a variety of enemies. Mostly smooth terrain to avoid pathing. Joining in faction battles and other fun events.
+
+Having a main town hall. where you upgrade your shops, factories and mercenaries, etc. Enemies target the town hall and if it dies you go back to your last save. Same if you die.
+You have to balance taking men on quests with you against leaving men at base. You can set your allies move ai. You can also equip them weapons etc. They level up with money found.
+
+Being able to temporarily/permanently raise and lower your priority to have enemies target you or run away from you.
+One example would be in a battle where you have surrounded a group of melee enemies with range units. You keep pulling the enemies back and forth with taunt.
+
+Genre: 3D, Commander, Defence, RPG, Rush 
+You will be fighting to complete quests, unlock abilities and aquire new weapon types. 
+Building profitable mining outposts, trade relations and looting enemies for money. 
+Money you will use to hire allies, place blockades, upgrade your gear and that of your men. 
+All which you will use to protect yourself and your town hall from the horde.
+Do you take more men with you to vanquish more difficult quests? Or do you leave them behind to help defend your town hall to the death?
+Do you choose the path of hiding and destruction from afar? Or do you fight at the heart of the battle with your sword and shield?
+Do you ally with the neighboring settlements, or loot each hall till there's nothing left in it?
+Whatever you do, don't dilly dally in a field. 
+The evil grows stronger by the minute.
+
+
+Game mechanics: enemies intensity will be raised and lowered consistently to give players breaks.
+
+Build training camps to be able to further set variables such as ally follow distance, how long they will hold position for, possibly reliability of coordinated commands.
+Such as engage, etc. Less likely hood for them to wonder.
+
+
+
+Dace changed something
