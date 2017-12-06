@@ -12,14 +12,19 @@ public class MenuScript : MonoBehaviour {
     public Interact playerInteract;
     public GameObject interactionGrid;
     public GameObject playerRotation;
-  
+	public AudioSource theme;
     public bool haveHud = false;
+
 
     // Use this for initialization
     public void Start()
     {
+		theme = GetComponent<AudioSource>();
+		AudioClip clipTheme = Resources.Load<AudioClip>("SadBall");
+		theme.PlayOneShot (clipTheme);
         playerInteract = Player.GetComponent<Interact>();
-    NetworkHUD = GameObject.Find("Networking").GetComponent<NetworkManagerHUD>();
+		AudioListener.pause = false;
+//    	NetworkHUD = GameObject.Find("Networking").GetComponent<NetworkManagerHUD>();
 
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
@@ -29,7 +34,7 @@ public class MenuScript : MonoBehaviour {
            
         if (Menu.activeInHierarchy)
         {
-            AudioListener.pause = false;
+			AudioListener.pause = false;
             NetworkHUD.enabled = false;
             Time.timeScale = 1;
             Menu.SetActive(false);
@@ -43,7 +48,7 @@ public class MenuScript : MonoBehaviour {
                 NetworkHUD.enabled = true;
             }
             
-            AudioListener.pause = true;
+            AudioListener.pause = false;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

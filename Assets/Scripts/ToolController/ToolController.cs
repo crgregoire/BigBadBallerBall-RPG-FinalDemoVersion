@@ -53,7 +53,7 @@ public class ToolController : MonoBehaviour
             ToggleAuto(false);
             trs2 = gameObject.AddComponent<Trigger>();
             trs2.Set(activate: Use, active: Use);
-			Create.Sound ("Sword Swish 1", gameObject.transform.position);
+//			Create.Sound ("Sword Swish 1", gameObject.transform.position);
             trs2.condition = () => Input.GetMouseButtonDown(0) && ps.enabled;
             kickedRot = holder.GetComponent<Rigidbody>();
         }

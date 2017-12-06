@@ -45,9 +45,9 @@ public class ScriptForMenu : MonoBehaviour {
 	}
 
 	public void StartLevel(){
-        print("startlevel");
+         print("startlevel");
         UI.scaleFactor += 1;
-        AudioListener.pause = true;
+//		AudioListener.pause = false;
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
