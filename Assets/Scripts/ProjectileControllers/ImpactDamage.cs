@@ -22,10 +22,15 @@ public class ImpactDamage : MonoBehaviour
         {
             if (to.IsReceiver(impact.gameObject))
             {
+                if (gameObject.name == "Sword")
+                {
+                    print("called");
+                }
                 int damage = Mathf.Max(Mathf.FloorToInt(impactDamage * impact.relativeVelocity.magnitude));
                 Health.Damage(impact.collider.gameObject, damage);
             }
         }
 
     }
- }
+    
+}

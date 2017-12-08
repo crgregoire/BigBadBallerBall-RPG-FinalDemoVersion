@@ -160,7 +160,7 @@ void Update()
         }
         catch (NullReferenceException ex)
         {
-            Debug.Log(ms.name + ms.rb + gameObject.transform.parent.name);
+            //Debug.Log(ms.name + ms.rb + gameObject.transform.parent.name);
         }
     }
 void OnCollisionEnter(Collision collision)
@@ -173,13 +173,20 @@ void OnCollisionEnter(Collision collision)
     }
     void checkRetreat(GameObject obj)
     {
-        if (charges)
-        {
-            //print(sendScript);
-            if (sendScript.IsReceiver(obj))
+        try{
+            if (charges)
             {
-                Retreat();
+                //print(sendScript);
+
+
+                if (sendScript.IsReceiver(obj))
+                {
+                    Retreat();
+                }
             }
+        }
+        catch (NullReferenceException e)
+        {
         }
     }
     public void Retreat()

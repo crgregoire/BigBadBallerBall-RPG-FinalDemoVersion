@@ -196,8 +196,8 @@ MonoBehaviour:
   kickHor: 0
   hasKick: 1
   randKick: 0
-  reloadTime: 3
-  lastUse: -3
+  reloadTime: 1
+  lastUse: -1
   kickWhat: {fileID: 0}
   kickedRot: {fileID: 0}
   kickBy: {fileID: 0}

@@ -38,7 +38,6 @@ public class ScriptForMenu : MonoBehaviour {
     }
 
 	public void ExitPress(){
-		//instructionMenu.enabled = false;
 		quitMenu.enabled = true;
 		startText.enabled = false;
 		exitText.enabled = false;
@@ -47,25 +46,21 @@ public class ScriptForMenu : MonoBehaviour {
 
 	public void InstructionPress(){
 		instructionMenu.enabled = true;
-		//quitMenu.enabled = false;
 		startText.enabled = false;
 		exitText.enabled = false;
 	}
 	public void NoPress(){
-		//instructionMenu.enabled = true;
 		quitMenu.enabled = false;
 		startText.enabled = true;
 		exitText.enabled = true;
 	}
 	public void NoPress2(){
-		instructionMenu.enabled = true;
-		//quitMenu.enabled = false;
+		instructionMenu.enabled = false;
 		startText.enabled = true;
 		exitText.enabled = true;
 	}
 
 	public void StartLevel(){
-         print("startlevel");
         UI.scaleFactor += 1;
 //		AudioListener.pause = false;
         Time.timeScale = 1;

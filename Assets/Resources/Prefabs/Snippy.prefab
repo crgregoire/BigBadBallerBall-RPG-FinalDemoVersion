@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713198025868886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 1}
   m_Children:
   - {fileID: 4048399407534344}
@@ -257,7 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e7b3cd7f0e5c0c4db3537807b0b148d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitsAllowed: 1
   collisionsAllowed: 0
+  collisionCount: 0
   firer: {fileID: 0}
   spawner: {fileID: 0}
   distance: 0.7
@@ -359,7 +361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 54419362954961088}
   speed: 30
-  maxSpeed: 10
   grip: 0.9
   velocity: 0
 --- !u!114 &114887528846587762

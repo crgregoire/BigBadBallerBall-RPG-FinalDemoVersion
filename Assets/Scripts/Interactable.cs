@@ -17,13 +17,9 @@ public class Interactable : MonoBehaviour {
     private Inventory invs;
     private GameObject gs;
     private Interact ints;
-    private Variables vs;
     public ScrollRect list;
     void Start()
     {
-        
-        vs = GetComponent<Variables>();
-
         interactable = gameObject;
         gs = GameObject.Find("GlobalScripts");
         interactionGrid = gs.GetComponent<MenuScript>().interactionGrid;
@@ -95,33 +91,6 @@ public class Interactable : MonoBehaviour {
         {
 
         }
-        if (moveable)
-        {
-            GameObject v3Obj = Instantiate(Create.GetPrefab("Vector3 Input"), interactionGrid.transform);
-            GameObject buttonObj = v3Obj.transform.Find("Button").gameObject;
-            ClickableObject cs = buttonObj.AddComponent<ClickableObject>();
-            Button button = buttonObj.GetComponent<Button>();
-            Text txt = buttonObj.GetComponentInChildren<Text>();
-            txt.text = "Set Position";
-            GameObject attachedTo = GetComponent<FixedJoint>().connectedBody.gameObject;
-
-            float x;
-            float y;
-            float z;
-            Vector3 relative = vs.displacement;
-
-            v3Obj.transform.Find("X").GetComponent<InputField>().text = Math.Round((decimal)relative.x,2).ToString();
-            v3Obj.transform.Find("Y").GetComponent<InputField>().text = Math.Round((decimal)relative.y,2).ToString();
-            v3Obj.transform.Find("Z").GetComponent<InputField>().text = Math.Round((decimal)relative.z,2).ToString();
-            cs.leftClick = () =>
-            {
-                Destroy(GetComponent<FixedJoint>());
-                try { x = float.Parse(v3Obj.transform.Find("X").GetComponent<InputField>().text); } catch (FormatException) {x = 0; }
-                try { y = float.Parse(v3Obj.transform.Find("Y").GetComponent<InputField>().text); } catch (FormatException) { y = 0; }
-                try { z = float.Parse(v3Obj.transform.Find("Z").GetComponent<InputField>().text); } catch (FormatException) { z = 0; }
-                Create.AttachFixed(gameObject, attachedTo, new Vector3(x, y, z));
-            };
-        }
         if (invs)
         {
             foreach (KeyValuePair<string, int> item in invs.items)
@@ -136,23 +105,7 @@ public class Interactable : MonoBehaviour {
         }
     }
 }
-    //AddInteractions
-    /*
-    // Use this for initialization
-    List<Action<int>> iNums;
-    List<Action<float>> iFloats;
-    GameObject interactable;
-    public GameObject menu;
-    void Start () {
-        ImpactDamage ims = interactable.GetComponent<ImpactDamage>();
-        if (ims)
-        {
-            iNums.Add((newVal) => ims.impactDamage = newVal);
-        }
-        
-        
-	}
-    */
+    
 
 
 

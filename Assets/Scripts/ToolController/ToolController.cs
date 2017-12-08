@@ -13,9 +13,6 @@ public class ToolController : MonoBehaviour
     public int kickHor = 0;
     public bool hasKick = true;
     public bool randKick = false;
-    //public string[] targets;
-    // public IBuff[] buffs;
-    //IBuff is an interface that will accept a GameObject and return void. Basically sets stats if object has them.
     public float reloadTime = 10;
     public float lastUse;
     public Rigidbody kickWhat;
@@ -53,7 +50,7 @@ public class ToolController : MonoBehaviour
             ToggleAuto(false);
             trs2 = gameObject.AddComponent<Trigger>();
             trs2.Set(activate: Use, active: Use);
-//			Create.Sound ("Sword Swish 1", gameObject.transform.position);
+			
             trs2.condition = () => Input.GetMouseButtonDown(0) && ps.enabled;
             kickedRot = holder.GetComponent<Rigidbody>();
         }
@@ -82,10 +79,18 @@ public class ToolController : MonoBehaviour
     }
     public void Use()
     {
+        
         if (Time.time > lastUse + (reloadTime*ms.reload))
         {
-            
-                lastUse = Time.time;
+            if (gameObject.name == "Sword")
+            {
+                Create.Sound("Sword Swish 1", gameObject.transform.position);
+            }
+            else
+            {
+                Create.Sound("drum gun", gameObject.transform.position);
+            }
+            lastUse = Time.time;
             if (!noAmmo)
             {
 
@@ -127,31 +132,7 @@ public class ToolController : MonoBehaviour
             kickedRot = kickWhat;
 
     }
-    //Have Buff be an interface for something that modifies stats of an object. Either by adding scripts, setting variables or whatever.
-    //Accepts a game object, returns a gameObject. The first buff to make is basic stats. Buffs damage and speed
-
-    /* public void SetBuffed(GameObject projectile, IBuff[] buffs)
-     { 
-        buffedProjectile = projectile;
- if (buffs)
-         {
-             foreach(IBuff buff in buffs){
-             buff(buffedProjectile);
-             }
-         }
-
-       }
-
-     }*/
-    /*
-    public void SetTargets(GameObject projectile, string[] targets)
-    {
-        foreach (string target in targets)
-        {
-            projectile.GetComponents<Sendable>()[0].targets.Add(target);
-        }
-    }
-    */
+    
     public static int RandomSign(){
             return (int)((Random.Range(0, 2) - 0.5) * 2);
         }

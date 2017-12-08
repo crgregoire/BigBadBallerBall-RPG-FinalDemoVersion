@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 //Anything that is a projectile and disapears after a certain amount of collisions with opponent. Also contains some variables used by other classes.
 public class Projectile : MonoBehaviour {
     //How many collisions the bullet will have till it is destroyed.
@@ -30,17 +31,19 @@ public class Projectile : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
-        if (to.IsReceiver(collision.gameObject))
-        {
-            if (hitsAllowed >= 0)
+        
+            if (to.IsReceiver(collision.gameObject))
             {
-                hitCount += 1;
-                if (hitCount >= hitsAllowed)
+                if (hitsAllowed >= 0)
                 {
-                    Destroy(gameObject);
+                    hitCount += 1;
+                    if (hitCount >= hitsAllowed)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
             }
-        }
+
         //possibly
     }
 }

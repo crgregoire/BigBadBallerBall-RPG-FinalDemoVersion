@@ -85,10 +85,27 @@ public class Health : MonoBehaviour
             //this will call all functions named OnDeath on this object and its children.
 
             BroadcastMessage("OnDeath");
+            GameObject deathAnimation = Create.GetPrefab("Ghost");
+            Instantiate(deathAnimation,GetComponent<Unit>().body.transform.position, new Quaternion());
             if(fs.faction == "Enemy")
             {
                 ss.AddScore(1);
             }
+            float noisePicker = Random.value;
+
+            if (noisePicker < .3)
+            {
+                Create.Sound("enemyDeathNoise1", gameObject.transform.position,volume:2);
+            }
+            else if (noisePicker >= .3 && noisePicker < .7)
+            {
+                Create.Sound("enemyDeathNoise2", gameObject.transform.position, volume:2);
+            }
+            else
+            {
+                Create.Sound("enemyDeathNoise3", gameObject.transform.position, volume:2);
+            }
+
             gameObject.SetActive(false);
             if (!noBreak)
             {
@@ -99,30 +116,7 @@ public class Health : MonoBehaviour
     }
 	private void DestroyGameObject()
 	{
-		float noisePicker = Random.value;
-
-		if(noisePicker < .3)
-		{
-			//			AudioSource audio = GetComponentInChildren<AudioSource>();
-			//            audio.PlayOneShot(deathNoise1);
-			Create.Sound ("enemyDeathNoise1", gameObject.transform.position);
-			//            SoundManagerScript.PlayDeathSound("enemyDeathNoise1");
-		}
-		else if(noisePicker >= .3 && noisePicker < .7)
-		{
-			Create.Sound ("enemyDeathNoise2", gameObject.transform.position);
-			//            AudioSource audio = GetComponentInChildren<AudioSource>();
-			//            audio.PlayOneShot(deathNoise2);
-			//          SoundManagerScript.PlayDeathSound("enemyDeathNoise2");
-		}
-		else
-		{
-			Create.Sound ("enemyDeathNoise3", gameObject.transform.position);
-			//			AudioSource audio = GetComponentInChildren<AudioSource>();
-			//            audio.PlayOneShot(deathNoise3);
-			//            SoundManagerScript.PlayDeathSound("enemyDeathNoise3");
-		}
-
+		
 		Destroy(gameObject);
 	}
 }

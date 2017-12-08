@@ -236,15 +236,6 @@ public class Create : MonoBehaviour
         
         obj.transform.rotation = to.transform.rotation;
         obj.transform.rotation *=rotation;
-        Variables vs = obj.GetComponent<Variables>();
-        if (vs)
-        {
-
-        }
-        else
-        {
-            vs = obj.AddComponent<Variables>();
-        }
         FixedJoint already = obj.GetComponent<FixedJoint>();
         if (already)
         {
@@ -255,7 +246,6 @@ public class Create : MonoBehaviour
         {
             ts.SetHolder(to);
         }
-        vs.displacement = displacement;
         FixedJoint joint = obj.AddComponent<FixedJoint>();
         joint.connectedBody = to.GetComponent<Rigidbody>();
 
@@ -266,7 +256,7 @@ public class Create : MonoBehaviour
     public static GameObject Unit(Vector3 location, string bodyName, string faction, string loadout = "none", int reward = 1, float level = 1)
     {
         GameObject bodyFab = GetPrefab(bodyName);
-        GameObject body = Instantiate(bodyFab,bodyFab.transform.position,bodyFab.transform.rotation);
+        GameObject body = Instantiate(bodyFab,location,bodyFab.transform.rotation);
         body.name = bodyName;
         body.tag = faction;
         SetMaterial(body, faction);
@@ -280,7 +270,6 @@ public class Create : MonoBehaviour
         body.AddComponent<DamageTransfer>();
 
         AddFaction(unit,faction);
-        unit.transform.position = location;
         if (loadout != "none")
         {
             AddLoadout(loadout, body, true);
@@ -371,9 +360,6 @@ public class Create : MonoBehaviour
 		{
 			duration = clip.length;
 		}
-
-
-
 		Vector3 pos;
 		if (altLocation != null)
 		{
